@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./styles.css" />
+
+    <script src="./dist/bundle.js" defer type="module"></script>
+  </head>
+  <body>
+    <h1>Tone.js</h1>
+    <div>
+      <div class="frame">
+        <div id="piano" class="piano">
+          <div data-note="C1" class="key note"></div>
+          <div data-note="C#1" class="key sharp"></div>
+          <div data-note="D1" class="key note"></div>
+          <div data-note="D#1" class="key sharp"></div>
+          <div data-note="E1" class="key note"></div>
+          <div data-note="F1" class="key note"></div>
+          <div data-note="F#1" class="key sharp"></div>
+          <div data-note="G1" class="key note"></div>
+          <div data-note="G#1" class="key sharp"></div>
+          <div data-note="A1" class="key note"></div>
+          <div data-note="A#1" class="key sharp"></div>
+          <div data-note="B1" class="key note"></div>
+
+          <div data-note="C2" class="key note"></div>
+          <div data-note="C#2" class="key sharp"></div>
+          <div data-note="D2" class="key note"></div>
+          <div data-note="D#2" class="key sharp"></div>
+          <div data-note="E2" class="key note"></div>
+          <div data-note="F2" class="key note"></div>
+          <div data-note="F#2" class="key sharp"></div>
+          <div data-note="G2" class="key note"></div>
+          <div data-note="G#2" class="key sharp"></div>
+          <div data-note="A2" class="key note"></div>
+          <div data-note="A#2" class="key sharp"></div>
+          <div data-note="B2" class="key note"></div>
+
+          <div data-note="C3" class="key note">C</div>
+          <div data-note="C#3" class="key sharp"></div>
+          <div data-note="D3" class="key note">D</div>
+          <div data-note="D#3" class="key sharp"></div>
+          <div data-note="E3" class="key note">E</div>
+          <div data-note="F3" class="key note">F</div>
+          <div data-note="F#3" class="key sharp"></div>
+          <div data-note="G3" class="key note">G</div>
+          <div data-note="G#3" class="key sharp"></div>
+          <div data-note="A3" class="key note">A</div>
+          <div data-note="A#3" class="key sharp"></div>
+          <div data-note="B3" class="key note">B</div>
+
+          <div data-note="C4" class="key note"></div>
+          <div data-note="C#4" class="key sharp"></div>
+          <div data-note="D4" class="key note"></div>
+          <div data-note="D#4" class="key sharp"></div>
+          <div data-note="E4" class="key note"></div>
+          <div data-note="F4" class="key note"></div>
+          <div data-note="F#4" class="key sharp"></div>
+          <div data-note="G4" class="key note"></div>
+          <div data-note="G#4" class="key sharp"></div>
+          <div data-note="A4" class="key note"></div>
+          <div data-note="A#4" class="key sharp"></div>
+          <div data-note="B4" class="key note"></div>
+
+          <div data-note="C5" class="key note"></div>
+          <div data-note="C#5" class="key sharp"></div>
+          <div data-note="D5" class="key note"></div>
+          <div data-note="D#5" class="key sharp"></div>
+          <div data-note="E5" class="key note"></div>
+          <div data-note="F5" class="key note"></div>
+          <div data-note="F#5" class="key sharp"></div>
+          <div data-note="G5" class="key note"></div>
+          <div data-note="G#5" class="key sharp"></div>
+          <div data-note="A5" class="key note"></div>
+          <div data-note="A#5" class="key sharp"></div>
+          <div data-note="B5" class="key note"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="control-panel">
+      <button id="play">Play</button>
+    </div>
+
+    <div>
+      <div class="note-sheat">
+        <div class="line hidden">
+          <div data-note="A4" class="dot">A</div>
+        </div>
+        <div class="space">
+          <div data-note="G4" class="dot">G</div>
+        </div>
+        <div class="line">
+          <div data-note="F4" class="dot">F</div>
+        </div>
+        <div class="space">
+          <div data-note="E4" class="dot">E</div>
+        </div>
+        <div class="line">
+          <div data-note="D4" class="dot">D</div>
+        </div>
+        <div class="space">
+          <div data-note="C4" class="dot">C</div>
+        </div>
+
+        <div class="line">
+          <div data-note="B3" class="dot">B</div>
+        </div>
+        <div class="space">
+          <div data-note="A3" class="dot">A</div>
+        </div>
+        <div class="line">
+          <div data-note="G3" class="dot">G</div>
+        </div>
+        <div class="space">
+          <div data-note="F3" class="dot">F</div>
+        </div>
+        <div class="line">
+          <div data-note="E3" class="dot">E</div>
+        </div>
+        <div class="space">
+          <div data-note="D3" class="dot">D</div>
+        </div>
+        <div class="line hidden">
+          <div data-note="C3" class="dot">C</div>
+        </div>
+
+        <div class="space">
+          <div data-note="B2" class="dot">B</div>
+        </div>
+        <div class="line">
+          <div data-note="A2" class="dot">A</div>
+        </div>
+        <div class="space">
+          <div data-note="G2" class="dot">G</div>
+        </div>
+        <div class="line">
+          <div data-note="F2" class="dot">F</div>
+        </div>
+        <div class="space">
+          <div data-note="E2" class="dot">E</div>
+        </div>
+        <div class="line">
+          <div data-note="D2" class="dot">D</div>
+        </div>
+        <div class="space">
+          <div data-note="C2" class="dot">C</div>
+        </div>
+
+        <div class="line">
+          <div data-note="B1" class="dot">B</div>
+        </div>
+        <div class="space">
+          <div data-note="A1" class="dot">A</div>
+        </div>
+        <div class="line">
+          <div data-note="G1" class="dot">G</div>
+        </div>
+        <div class="space">
+          <div data-note="F1" class="dot">F</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

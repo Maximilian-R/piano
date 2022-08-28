@@ -1,0 +1,434 @@
+h1 {
+  text-align: center;
+  font-family: monospace;
+  color: #003e40;
+}
+
+body > div {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body {
+  background: #aaa;
+  margin: 0;
+  padding: 0;
+}
+
+.piano {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 12rem;
+  padding: 0 1px;
+}
+
+.key {
+  font-size: 1rem;
+  font-family: monospace;
+  color: #003e40;
+  position: relative;
+}
+
+.key::after {
+  z-index: 2;
+  background: #6fd6ad;
+  display: block;
+  position: absolute;
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 0.1rem;
+  -webkit-transform: scale(0, 0);
+          transform: scale(0, 0);
+  -webkit-transition: -webkit-transform 200ms cubic-bezier(0.5, -0.5, 0.5, 1);
+  transition: -webkit-transform 200ms cubic-bezier(0.5, -0.5, 0.5, 1);
+  transition: transform 200ms cubic-bezier(0.5, -0.5, 0.5, 1);
+  transition: transform 200ms cubic-bezier(0.5, -0.5, 0.5, 1), -webkit-transform 200ms cubic-bezier(0.5, -0.5, 0.5, 1);
+}
+
+.key.pressed::after {
+  -webkit-transform: scale(1, 1);
+          transform: scale(1, 1);
+  -webkit-transition: -webkit-transform 200ms cubic-bezier(0.5, 0, 0.5, 2);
+  transition: -webkit-transform 200ms cubic-bezier(0.5, 0, 0.5, 2);
+  transition: transform 200ms cubic-bezier(0.5, 0, 0.5, 2);
+  transition: transform 200ms cubic-bezier(0.5, 0, 0.5, 2), -webkit-transform 200ms cubic-bezier(0.5, 0, 0.5, 2);
+}
+
+.note {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  width: 2rem;
+  height: 100%;
+  background: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  padding-bottom: 12px;
+  margin-right: 1px;
+  border-radius: 0.25rem;
+  -webkit-box-shadow: 0 -10px 0 0 #ddd inset;
+          box-shadow: 0 -10px 0 0 #ddd inset;
+}
+
+.note:last-child {
+  margin-right: 0;
+}
+
+.note.pressed {
+  background: #eee;
+  -webkit-box-shadow: 0 -4px 0 0 #ddd inset;
+          box-shadow: 0 -4px 0 0 #ddd inset;
+}
+
+.note::after {
+  left: 0.75rem;
+  bottom: 2rem;
+}
+
+.sharp {
+  height: 60%;
+  top: -0.1rem;
+}
+
+.sharp::before {
+  z-index: 1;
+  display: block;
+  position: absolute;
+  content: "";
+  width: 1rem;
+  background: #333;
+  height: 100%;
+  left: -0.5rem;
+  border-radius: 0.15rem;
+  /* box-shadow: 0 -6px 4px 4px #111 inset */
+}
+
+.sharp.pressed::before {
+  background: #111;
+}
+
+.sharp::after {
+  left: -0.25rem;
+  bottom: 1rem;
+}
+
+.control-panel {
+  margin: 2rem 0;
+}
+
+.note-sheat {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: white;
+  border-radius: 0.5rem;
+  display: block;
+  width: 100%;
+  max-width: 1200px;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.note-sheat .line {
+  position: relative;
+  width: 100%;
+  height: 2px;
+  background-color: #333;
+}
+
+.note-sheat .line.hidden {
+  background-color: #fff;
+}
+
+.note-sheat .line .dot {
+  top: -0.75rem;
+}
+
+.note-sheat .space {
+  position: relative;
+  height: 1.5rem;
+}
+
+.note-sheat > *:nth-child(1) .dot {
+  right: calc(100% / 24 * 1 - 1.5rem);
+}
+
+.note-sheat > *:nth-child(1) .dot::after, .note-sheat > *:nth-child(1) .dot::before {
+  background: #d7c975;
+}
+
+.note-sheat > *:nth-child(2) .dot {
+  right: calc(100% / 24 * 2 - 1.5rem);
+}
+
+.note-sheat > *:nth-child(2) .dot::after, .note-sheat > *:nth-child(2) .dot::before {
+  background: #91d775;
+}
+
+.note-sheat > *:nth-child(3) .dot {
+  right: calc(100% / 24 * 3 - 1.5rem);
+}
+
+.note-sheat > *:nth-child(3) .dot::after, .note-sheat > *:nth-child(3) .dot::before {
+  background: #75d7ad;
+}
+
+.note-sheat > *:nth-child(4) .dot {
+  right: calc(100% / 24 * 4 - 1.5rem);
+}
+
+.note-sheat > *:nth-child(4) .dot::after, .note-sheat > *:nth-child(4) .dot::before {
+  background: #75add7;
+}
+
+.note-sheat > *:nth-child(5) .dot {
+  right: calc(100% / 24 * 5 - 1.5rem);
+}
+
+.note-sheat > *:nth-child(5) .dot::after, .note-sheat > *:nth-child(5) .dot::before {
+  background: #9175d7;
+}
+
+.note-sheat > *:nth-child(6) .dot {
+  right: calc(100% / 24 * 6 - 1.5rem);
+}
+
+.note-sheat > *:nth-child(6) .dot::after, .note-sheat > *:nth-child(6) .dot::before {
+  background: #d775c9;
+}
+
+.note-sheat > *:nth-child(7) .dot {
+  right: calc(100% / 24 * 7 - 1.5rem);
+}
+
+.note-sheat > *:nth-child(7) .dot::after, .note-sheat > *:nth-child(7) .dot::before {
+  background: #d77575;
+}
+
+.note-sheat > *:nth-child(8) .dot {
+  right: calc(100% / 24 * 8 - 1.5rem);
+}
+
+.note-sheat > *:nth-child(8) .dot::after, .note-sheat > *:nth-child(8) .dot::before {
+  background: #d7c975;
+}
+
+.note-sheat > *:nth-child(9) .dot {
+  right: calc(100% / 24 * 9 - 1.5rem);
+}
+
+.note-sheat > *:nth-child(9) .dot::after, .note-sheat > *:nth-child(9) .dot::before {
+  background: #91d775;
+}
+
+.note-sheat > *:nth-child(10) .dot {
+  right: calc(100% / 24 * 10 - 1.5rem);
+}
+
+.note-sheat > *:nth-child(10) .dot::after, .note-sheat > *:nth-child(10) .dot::before {
+  background: #75d7ad;
+}
+
+.note-sheat > *:nth-child(11) .dot {
+  right: calc(100% / 24 * 11 - 1.5rem);
+}
+
+.note-sheat > *:nth-child(11) .dot::after, .note-sheat > *:nth-child(11) .dot::before {
+  background: #75add7;
+}
+
+.note-sheat > *:nth-child(12) .dot {
+  right: calc(100% / 24 * 12 - 1.5rem);
+}
+
+.note-sheat > *:nth-child(12) .dot::after, .note-sheat > *:nth-child(12) .dot::before {
+  background: #9175d7;
+}
+
+.note-sheat > *:nth-child(13) .dot {
+  right: calc(100% / 24 * 13 - 1.5rem);
+}
+
+.note-sheat > *:nth-child(13) .dot::after, .note-sheat > *:nth-child(13) .dot::before {
+  background: #d775c9;
+}
+
+.note-sheat > *:nth-child(14) .dot {
+  right: calc(100% / 24 * 14 - 1.5rem);
+}
+
+.note-sheat > *:nth-child(14) .dot::after, .note-sheat > *:nth-child(14) .dot::before {
+  background: #d77575;
+}
+
+.note-sheat > *:nth-child(15) .dot {
+  right: calc(100% / 24 * 15 - 1.5rem);
+}
+
+.note-sheat > *:nth-child(15) .dot::after, .note-sheat > *:nth-child(15) .dot::before {
+  background: #d7c975;
+}
+
+.note-sheat > *:nth-child(16) .dot {
+  right: calc(100% / 24 * 16 - 1.5rem);
+}
+
+.note-sheat > *:nth-child(16) .dot::after, .note-sheat > *:nth-child(16) .dot::before {
+  background: #91d775;
+}
+
+.note-sheat > *:nth-child(17) .dot {
+  right: calc(100% / 24 * 17 - 1.5rem);
+}
+
+.note-sheat > *:nth-child(17) .dot::after, .note-sheat > *:nth-child(17) .dot::before {
+  background: #75d7ad;
+}
+
+.note-sheat > *:nth-child(18) .dot {
+  right: calc(100% / 24 * 18 - 1.5rem);
+}
+
+.note-sheat > *:nth-child(18) .dot::after, .note-sheat > *:nth-child(18) .dot::before {
+  background: #75add7;
+}
+
+.note-sheat > *:nth-child(19) .dot {
+  right: calc(100% / 24 * 19 - 1.5rem);
+}
+
+.note-sheat > *:nth-child(19) .dot::after, .note-sheat > *:nth-child(19) .dot::before {
+  background: #9175d7;
+}
+
+.note-sheat > *:nth-child(20) .dot {
+  right: calc(100% / 24 * 20 - 1.5rem);
+}
+
+.note-sheat > *:nth-child(20) .dot::after, .note-sheat > *:nth-child(20) .dot::before {
+  background: #d775c9;
+}
+
+.note-sheat > *:nth-child(21) .dot {
+  right: calc(100% / 24 * 21 - 1.5rem);
+}
+
+.note-sheat > *:nth-child(21) .dot::after, .note-sheat > *:nth-child(21) .dot::before {
+  background: #d77575;
+}
+
+.note-sheat > *:nth-child(22) .dot {
+  right: calc(100% / 24 * 22 - 1.5rem);
+}
+
+.note-sheat > *:nth-child(22) .dot::after, .note-sheat > *:nth-child(22) .dot::before {
+  background: #d7c975;
+}
+
+.note-sheat > *:nth-child(23) .dot {
+  right: calc(100% / 24 * 23 - 1.5rem);
+}
+
+.note-sheat > *:nth-child(23) .dot::after, .note-sheat > *:nth-child(23) .dot::before {
+  background: #91d775;
+}
+
+.note-sheat > *:nth-child(24) .dot {
+  right: calc(100% / 24 * 24 - 1.5rem);
+}
+
+.note-sheat > *:nth-child(24) .dot::after, .note-sheat > *:nth-child(24) .dot::before {
+  background: #75d7ad;
+}
+
+.note-sheat .dot {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  position: absolute;
+  content: attr(data-note);
+  z-index: 1;
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: monospace;
+  font-size: 1.25rem;
+  -webkit-transform: scale(0, 0);
+          transform: scale(0, 0);
+  -webkit-transition: -webkit-transform 250ms ease-in-out;
+  transition: -webkit-transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
+}
+
+.note-sheat .dot::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.note-sheat .dot::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: 50%;
+  z-index: -2;
+  opacity: 1;
+  -webkit-transform: scale(0.5, 0.5);
+          transform: scale(0.5, 0.5);
+  -webkit-transition: opacity 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
+  transition: opacity 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out, opacity 250ms ease-in-out;
+  transition: transform 250ms ease-in-out, opacity 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
+}
+
+.note-sheat .dot.display {
+  -webkit-transform: scale(1, 1);
+          transform: scale(1, 1);
+  -webkit-transition: -webkit-transform 150ms cubic-bezier(0.5, 0, 0.5, 1.5);
+  transition: -webkit-transform 150ms cubic-bezier(0.5, 0, 0.5, 1.5);
+  transition: transform 150ms cubic-bezier(0.5, 0, 0.5, 1.5);
+  transition: transform 150ms cubic-bezier(0.5, 0, 0.5, 1.5), -webkit-transform 150ms cubic-bezier(0.5, 0, 0.5, 1.5);
+}
+
+.note-sheat .dot.display::before {
+  opacity: 0.5;
+  -webkit-transform: scale(1.5, 1.5);
+          transform: scale(1.5, 1.5);
+  -webkit-transition: opacity 150ms ease-in-out, -webkit-transform 150ms cubic-bezier(0.5, 0, 0.5, 1.5);
+  transition: opacity 150ms ease-in-out, -webkit-transform 150ms cubic-bezier(0.5, 0, 0.5, 1.5);
+  transition: transform 150ms cubic-bezier(0.5, 0, 0.5, 1.5), opacity 150ms ease-in-out;
+  transition: transform 150ms cubic-bezier(0.5, 0, 0.5, 1.5), opacity 150ms ease-in-out, -webkit-transform 150ms cubic-bezier(0.5, 0, 0.5, 1.5);
+}
+/*# sourceMappingURL=styles.css.map */
